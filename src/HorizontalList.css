@@ -1,0 +1,31 @@
+.header{
+    overflow: hidden;
+    background-color: white;
+    padding: 13px;
+    border-bottom:1px solid #e3e6e4;
+}
+
+.button {
+    background-color: white;
+    color: black;
+    padding: 5px 15px;
+    float: right;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #edf5f0;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-right: 130px;
+  }
+
+.button:hover {
+    background-color: #edf2ef;
+    color: black;
+  }
+
+.logo{
+    margin-left: 130px;
+    width: 150px;
+    height: 25px;
+}
