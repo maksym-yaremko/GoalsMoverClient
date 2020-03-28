@@ -5,19 +5,15 @@ import history from './UrlHistory';
 
 
 
-class HorizontalList extends React.Component{
-    componentDidUpdate(){
-        console.log(history.location.pathname)
-    }
-    render(){
+function HorizontalList(){
+    console.log(history.location.pathname)
     return (
         <div className="header">
-            <img src = {logo} alt="Logo" className="logo"></img>
-            <button className = "button" onClick={() => history.push('/login')}>Log In</button>
+            <a href="/"><img src = {logo} alt="Logo" className="logo"></img></a>
+            <Button url = {history.location.pathname}></Button>
         </div>
         
     );
-}
 }
 
 

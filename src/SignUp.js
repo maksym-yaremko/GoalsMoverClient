@@ -2,13 +2,13 @@ import React from 'react';
 import HorizontalList from './HorizontalList';
 
 
-function Login(){
+function SignUp(){
     return (
         <div>
         <HorizontalList></HorizontalList>
-        LOGIN UI
+        SignUp UI
         </div>
     );
 }
 
-export default Login;
+export default SignUp;

@@ -1,4 +1,5 @@
 import React from 'react';
+import HorizontalList from './HorizontalList';
 
 const divstyle = {
     color : 'black',
@@ -10,7 +11,10 @@ const divstyle = {
 
 function MainPage(){
     return (
+        <div>
+            <HorizontalList></HorizontalList>
         <div style={divstyle}>The #1 app for setting your goals</div>
+        </div>
     );
 }
 

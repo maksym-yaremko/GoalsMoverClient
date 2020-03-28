@@ -1,11 +1,11 @@
-import React from 'react';
-import HorizontalList from './HorizontalList';
+// import React from 'react';
+// import HorizontalList from './HorizontalList';
 
 
-function App() {
-  return (
-    <HorizontalList></HorizontalList>
-  );
-}
+// function App() {
+//   return (
+    
+//   );
+// }
 
-export default App;
+// export default App;
