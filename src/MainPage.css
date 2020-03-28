@@ -1,0 +1,85 @@
+.signup-button-facebook{
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    padding: 22px 34px;
+    margin-top: 30px;
+    background-color:	#3b5998;
+    text-decoration: none;
+    border: 0px solid #edf5f0;
+    color: white;
+    cursor: pointer;
+}
+
+.signup-button-facebook:hover {
+    background-color: #395080;
+    color: white;
+    text-decoration: none;
+  }
+
+.signup-button-gmail{
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    padding: 22px 34px;
+    margin-top: 30px;
+    border: 1px solid #c2c2c4;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+.signup-button-gmail:hover {
+    background-color: #f0f1f5;
+    color: black;
+    border: 1px solid #070712;
+    text-decoration: none;
+  }
+
+.signup-button-email{
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    padding: 22px 34px;
+    margin-top: 30px;
+    border: 1px solid #c2c2c4;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+.signup-button-email:hover {
+    background-color: #f0f1f5;
+    color: black;
+    border: 1px solid #070712;
+    text-decoration: none;
+  }
+
+
+
+.facebook-icon{
+    background-image : url(./mainPagePhoto.jpg);
+}
+
+
+
+.col1{
+    background-color: tomato;
+    align-content: center;
+}
+
+.col2{
+    background-color: #e3d0cf;
+    align-content: center;
+}
+.hr{
+    font-size: 12px;
+    text-align: center;
+    margin-top: 34px;
+    margin-bottom: 4px;
+}
+
+.already-a-member{
+    text-align: center;
+    margin-top: 10px;
+}
