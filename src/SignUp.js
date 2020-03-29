@@ -1,13 +1,18 @@
 import React from 'react';
 import HorizontalList from './HorizontalList';
+import './SignUp.css';
+import BodyClassName from 'react-body-classname';
 
 
 function SignUp(){
+
     return (
-        <div>
-        <HorizontalList></HorizontalList>
-        SignUp UI
-        </div>
+        <BodyClassName className="signUpPageBodyClass">
+            <div>           
+                <HorizontalList></HorizontalList>  
+
+            </div>
+        </BodyClassName>
     );
 }
 
