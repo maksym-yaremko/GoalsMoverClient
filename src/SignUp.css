@@ -5,3 +5,108 @@
     -o-background-size: cover;
     background-size: cover;
 }
+
+#form_login{
+    padding: 0px 40px;
+    padding-top: 10px;
+    margin-top: 30px;
+    border-radius: 4px;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    -moz-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+    background: rgba(0,0,0,0.7);
+}
+
+#submitbutton-signup-form{
+    color: white;
+    background-color: #ff7f0f;
+    width: 100%;
+    padding: 10px;
+    border: 0px;
+    border-radius: 4px;
+}
+
+#submitbutton-signup-form:hover{
+    background-color: #c96106;
+}
+
+.text-signup-form{
+    text-align: center;
+    color: white;
+}
+
+.texts-signup-form{
+    padding-bottom: 60px;
+}
+
+#email-sign-up-form{
+    width: 100%;
+    padding: 10px ;
+    border: 0px;
+    border-radius: 4px;
+}
+
+#password-sign-up-form{
+    width: 100%;
+    padding: 10px;
+    border: 0px;
+    border-radius: 4px;
+}
+
+#sign-up-form-page-text{
+    text-align: center;
+    padding:5px 0px;
+    font-size: 13px;
+    color: white;
+}
+
+.signup-page-button-facebook{
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    padding: 10px 34px;
+    background-color:	#3b5998;
+    text-decoration: none;
+    border: 0px solid #edf5f0;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.signup-page-button-facebook:hover {
+    background-color: #395080;
+    color: white;
+    text-decoration: none;
+  }
+
+  .signup-page-button-gmail{
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    padding: 10px 34px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #c2c2c4;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.signup-page-button-gmail:hover {
+    background-color: #f0f1f5;
+    color: black;
+    border: 1px solid #070712;
+    text-decoration: none;
+}
+
+.terms-texts-signup-form{
+
+    text-align: center;
+    font-size: 12px;
+    padding: 0px;
+    color: white;
+}
