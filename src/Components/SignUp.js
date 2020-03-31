@@ -1,6 +1,6 @@
 import React from 'react';
 import HorizontalList from './HorizontalList';
-import './SignUp.css';
+import '../ComponentsStyles/SignUp.css';
 import BodyClassName from 'react-body-classname';
 
 

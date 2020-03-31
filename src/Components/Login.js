@@ -1,7 +1,7 @@
 import React from 'react';
 import HorizontalList from './HorizontalList';
 import BodyClassName from 'react-body-classname';
-import './Login.css';
+import '../ComponentsStyles/Login.css';
 
 
 function Login(){

@@ -1,8 +1,8 @@
 import React from 'react';
 import HorizontalList from './HorizontalList';
 import { Container, Row, Col } from 'reactstrap';
-import la from './mainPagePhoto.jpg'
-import './MainPage.css';
+import la from '../Photos/mainPagePhoto.jpg'
+import '../ComponentsStyles/MainPage.css';
 
 const divstyle = {
     color : 'black',

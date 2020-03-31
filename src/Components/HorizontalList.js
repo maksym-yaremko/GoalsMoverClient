@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from './Button';
-import logo from './logo.jpg';
+import logo from '../Photos/logo.jpg';
 import history from './UrlHistory';
 
 
