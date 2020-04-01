@@ -1,11 +1,19 @@
-// import React from 'react';
-// import HorizontalList from './HorizontalList';
+import React from 'react';
+import Routes from './Routes';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import rootReducer from '../Store/reducers';
 
 
-// function App() {
-//   return (
-    
-//   );
-// }
+const store = createStore(rootReducer, applyMiddleware(thunk))
 
-// export default App;
+function App() {
+  return (
+      <Provider store={store}>
+        <Routes/>
+    </Provider>
+  );
+}
+
+export default App;

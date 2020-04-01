@@ -6,7 +6,6 @@ import history from './UrlHistory';
 
 
 function HorizontalList(){
-    console.log(history.location.pathname)
     return (
         <div className="header">
             <a href="/"><img src = {logo} alt="Logo" className="logo"></img></a>

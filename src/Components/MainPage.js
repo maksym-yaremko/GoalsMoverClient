@@ -18,7 +18,6 @@ const imagestyle ={
     overflow: 'hidden'
 }
 
-
 function MainPage(){
     return (
         <div>

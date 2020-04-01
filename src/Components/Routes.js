@@ -4,7 +4,7 @@ import { Router, Switch, Route } from "react-router-dom";
 import Login from "./Login";
 import MainPage from "./MainPage"
 import history from './UrlHistory';
-import SignUp from './SignUp';
+import SignUpContainer from './SignUpContainer';
 
 function Routes() {
         return (
@@ -12,7 +12,7 @@ function Routes() {
                 <Switch>
                     <Route path="/" exact > <MainPage /> </Route>
                     <Route path="/login" exact> <Login /> </Route>  
-                    <Route path="/signup" exact> <SignUp /></Route>             
+                    <Route path="/signup" exact> <SignUpContainer /></Route>             
                 </Switch>
             </Router>
         );

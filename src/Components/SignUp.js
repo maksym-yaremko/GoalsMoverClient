@@ -2,10 +2,44 @@ import React from 'react';
 import HorizontalList from './HorizontalList';
 import '../ComponentsStyles/SignUp.css';
 import BodyClassName from 'react-body-classname';
+import Create from '../Api';
+
+class SignUp extends React.Component{
+    constructor(props) {
+        super(props);
+        this.onEmailChange = this.onEmailChange.bind(this);
+        this.onPasswordChange = this.onPasswordChange.bind(this);
+        this.onButtonSumbit = this.onButtonSumbit.bind(this)
+
+        this.state = {
+            email: '',
+            password : ''
+        };
+      }
+
+    onEmailChange(event){
+        this.props.setEmailText(event.target.value);
+        this.setState({email:event.target.value});
+    }
+
+    onPasswordChange(event){
+        this.props.setPasswordText(event.target.value);
+        this.setState({password:event.target.value});
+    }
 
 
-function SignUp(){
 
+    onButtonSumbit(){
+
+        const newRecord ={
+            Email:this.state.email,
+            Password:this.state.password
+        };
+        window.location.href='/'
+
+        Create(newRecord)
+    }
+    render(){
     return (
         <BodyClassName className="signUpPageBodyClass">
             <div>           
@@ -24,13 +58,13 @@ function SignUp(){
                         </div>
                         <p id="login-sign-up-form-page-text"> or sign up with your email address </p>
                         <p>
-                            <input type="text" id="email-login-signup-form" placeholder="  Email" />
+                            <input type="text" id="email-login-signup-form" placeholder="  Email" value={this.props.email} onChange={this.onEmailChange}/>
                         </p>
                          <p>
-                            <input type="password" id="password-login-signup-form" placeholder="  Password" />
+                            <input type="password" id="password-login-signup-form" placeholder="  Password" value={this.props.password} onChange={this.onPasswordChange}/>
                         </p>
                         <p>
-                            <button id="submitbutton-signup-form" type="button">Sign up</button>
+                            <button id="submitbutton-signup-form" type="button" onClick={this.onButtonSumbit}>Sign up</button>
                         </p>
                         <div className = "terms-texts-login-signup-form">
                             <p>By signing up for Goaler, you agree to the Terms of Service.</p>
@@ -41,6 +75,7 @@ function SignUp(){
             </div>
         </BodyClassName>
     );
+    }
 }
 
 export default SignUp;
