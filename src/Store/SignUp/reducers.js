@@ -1,18 +1,18 @@
-import { SIGN_UP_CHANGE_EMAIL_TEXT, SIGN_IN_CHANGE_PASSWORD_TEXT } from "../constants";
+import { SIGN_UP_CHANGE_EMAIL_TEXT, SIGN_UP_CHANGE_PASSWORD_TEXT } from "../constants";
 
-const defaulState ={
+const defaultState ={
     email: '',
     password: ''
 };
 
-export const signUpReducer =(state=defaulState,action) => {
+export const signUpReducer = (state = defaultState,action) => {
     switch(action.type){
         case SIGN_UP_CHANGE_EMAIL_TEXT:
             return{
                 ...state,
                 email : action.payload
             };
-        case SIGN_IN_CHANGE_PASSWORD_TEXT:
+        case SIGN_UP_CHANGE_PASSWORD_TEXT:
             return{
                 ...state,
                 password: action.payload

@@ -1,19 +1,27 @@
 import axios from "axios";
 
-const baseUrl = "https://localhost:5001/api/Users/"
+const baseUrl = "https://localhost:5001/api/CreateUser"
 
-// export default{
-//     User(url=baseUrl+'Users/'){
-//         return{
-//             fetchAll : () => axios.get(url),
-//             fetchById : id => axios.get(url + id),
-//             create : newRecord => axios.post(url, newRecord),
-//             update : (id,updateRecord) => axios.put(url + id, updateRecord),
-//             delete : id => axios.delete(url + id)
-//         }
-//     }
-// }
-
-export default function Create (newRecord){
+export function CreateUser (newRecord){
+    console.log(newRecord);
     axios.post(baseUrl, newRecord)
+}
+
+export async function GetUsers (){
+    console.log("lala1")
+    return await axios.get('https://localhost:5001/api/GetUsers')
+}
+
+export async function Authenticate(User){
+    
+    let resp = await axios.post("https://localhost:5001/api/Authenticate", User)
+    localStorage.setItem('accessToken', resp.data.token);
+    localStorage.setItem('refreshToken',resp.data.refreshToken);
+    console.log(resp.data.token)
+
+    // .then(function(response){
+    //     localStorage.setItem('Token', response.data.token);
+    // })
+
+    // console.log(localStorage.getItem('Token'))
 }

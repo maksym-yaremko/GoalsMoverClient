@@ -2,9 +2,47 @@ import React from 'react';
 import HorizontalList from './HorizontalList';
 import BodyClassName from 'react-body-classname';
 import '../ComponentsStyles/Login.css';
+import * as All from '../Api';
 
 
-function Login(){
+class Login extends React.Component{
+    constructor(props) {
+        super(props);
+        this.onEmailChange = this.onEmailChange.bind(this);
+        this.onPasswordChange = this.onPasswordChange.bind(this);
+        this.onButtonSumbit = this.onButtonSumbit.bind(this)
+
+        this.state = {
+            email: '',
+            password : ''
+        };
+      }
+
+    onEmailChange(event){     
+        this.props.setEmailText(event.target.value);
+        this.setState({email:event.target.value});
+
+    }
+
+    onPasswordChange(event){
+        this.props.setPasswordText(event.target.value);
+        this.setState({password:event.target.value});
+    }
+
+
+
+    onButtonSumbit(){
+        const newRecord ={
+            Email:this.state.email,
+            Password:this.state.password
+        };
+    
+        All.Authenticate(newRecord)
+
+        // window.location.href='/'
+    }
+
+    render(){
     return (
         <BodyClassName className="logInPageBodyClass">
             <div>
@@ -21,13 +59,13 @@ function Login(){
                         </div>
                         <p id="login-sign-up-form-page-text"> Or log in with email </p>
                         <p>
-                            <input type="text" id="email-login-signup-form" placeholder="  Email" />
+                            <input type="text" id="email-login-signup-form" placeholder="  Email" value={this.props.email} onChange={this.onEmailChange} />
                         </p>
                          <p>
-                            <input type="password" id="password-login-signup-form" placeholder="  Password" />
+                            <input type="password" id="password-login-signup-form" placeholder="  Password" value={this.props.password} onChange={this.onPasswordChange}/>
                         </p>
                         <p>
-                            <button id="submitbutton-login-form" type="button">Log in</button>
+                            <button id="submitbutton-login-form" type="button" onClick={this.onButtonSumbit}>Log in</button>
                         </p>
                         <hr id="login-form-hr"></hr>
                         <div className = "terms-texts-login-signup-form">
@@ -37,6 +75,7 @@ function Login(){
             </div>
         </BodyClassName>
     );
+    }
 }
 
 export default Login;

@@ -2,7 +2,7 @@ import React from 'react';
 import HorizontalList from './HorizontalList';
 import '../ComponentsStyles/SignUp.css';
 import BodyClassName from 'react-body-classname';
-import Create from '../Api';
+import * as All from '../Api';
 
 class SignUp extends React.Component{
     constructor(props) {
@@ -17,9 +17,10 @@ class SignUp extends React.Component{
         };
       }
 
-    onEmailChange(event){
+    onEmailChange(event){     
         this.props.setEmailText(event.target.value);
         this.setState({email:event.target.value});
+        console.log(event.target.value);
     }
 
     onPasswordChange(event){
@@ -30,14 +31,13 @@ class SignUp extends React.Component{
 
 
     onButtonSumbit(){
-
         const newRecord ={
             Email:this.state.email,
             Password:this.state.password
         };
+    
+        All.CreateUser(newRecord)
         window.location.href='/'
-
-        Create(newRecord)
     }
     render(){
     return (
