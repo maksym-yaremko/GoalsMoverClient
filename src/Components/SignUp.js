@@ -20,7 +20,6 @@ class SignUp extends React.Component{
     onEmailChange(event){     
         this.props.setEmailText(event.target.value);
         this.setState({email:event.target.value});
-        console.log(event.target.value);
     }
 
     onPasswordChange(event){
@@ -28,17 +27,16 @@ class SignUp extends React.Component{
         this.setState({password:event.target.value});
     }
 
-
-
-    onButtonSumbit(){
+    async onButtonSumbit(){
         const newRecord ={
             Email:this.state.email,
             Password:this.state.password
         };
     
-        All.CreateUser(newRecord)
+        await All.CreateUser(newRecord)
         window.location.href='/'
     }
+
     render(){
     return (
         <BodyClassName className="signUpPageBodyClass">

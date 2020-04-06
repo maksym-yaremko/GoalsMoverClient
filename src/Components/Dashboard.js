@@ -5,7 +5,7 @@ function Dahboard(){
     console.log(token);
     return(
         <div>
-            lala
+            Content inside app. After login
         </div>
     );
 }

@@ -6,13 +6,26 @@ import MainPage from "./MainPage"
 import history from './UrlHistory';
 import SignUpContainer from './SignUpContainer';
 import Dashboard from './Dashboard';
+import JwtDecode from 'jwt-decode';
+import * as All from '../Api';
 
 
-function requireAuth() {
+ async function requireAuth() {
     var token = localStorage.getItem('accessToken');
+    var decodedAccessToken = JwtDecode(token)
     if(token == null){
         return true
     }
+
+    if(decodedAccessToken.exp * 1000 < Date.now() ){
+        var Tokens = {
+            AccessToken : localStorage.getItem('accessToken'),
+            RefreshToken : localStorage.getItem('refreshToken')
+        }
+        await All.RefreshToken(Tokens)
+        return false;
+    }
+    return false;
 }
 
 function Routes() {
@@ -22,14 +35,7 @@ function Routes() {
                     <Route path="/" exact > <MainPage /> </Route>
                     <Route path="/login" exact> <LogInContainer /> </Route>  
                     <Route path="/signup" exact> <SignUpContainer /></Route> 
-                    {/* <Route path="/dashboard" onEnter={requireAuth} exact> <Dashboard /> </Route>     */}
-                    <Route exact path="/dashboard" render={() => (
-                          requireAuth() ? (
-                            <Redirect to="/login"/>
-                          ) : (
-                            <Dashboard />
-                          )
-                        )}/>        
+                    <Route exact path="/dashboard" render={() => ( requireAuth() ? (<Redirect to="/login"/>) : (<Dashboard />))}/>        
                 </Switch>
             </Router>
         );

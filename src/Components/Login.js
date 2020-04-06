@@ -31,15 +31,15 @@ class Login extends React.Component{
 
 
 
-    onButtonSumbit(){
+    async onButtonSumbit(){
         const newRecord ={
             Email:this.state.email,
             Password:this.state.password
         };
     
-        All.Authenticate(newRecord)
+        await All.Authenticate(newRecord)
 
-        // window.location.href='/'
+        window.location.href='/dashboard'
     }
 
     render(){

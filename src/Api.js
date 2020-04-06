@@ -2,9 +2,8 @@ import axios from "axios";
 
 const baseUrl = "https://localhost:5001/api/CreateUser"
 
-export function CreateUser (newRecord){
-    console.log(newRecord);
-    axios.post(baseUrl, newRecord)
+export async function CreateUser (newRecord){
+    await axios.post(baseUrl, newRecord)
 }
 
 export async function GetUsers (){
@@ -14,14 +13,19 @@ export async function GetUsers (){
 
 export async function Authenticate(User){
     
-    let resp = await axios.post("https://localhost:5001/api/Authenticate", User)
-    localStorage.setItem('accessToken', resp.data.token);
-    localStorage.setItem('refreshToken',resp.data.refreshToken);
-    console.log(resp.data.token)
+    let response = await axios.post("https://localhost:5001/api/Authenticate", User)
+    localStorage.setItem('accessToken', response.data.token);
+    localStorage.setItem('refreshToken',response.data.refreshToken);
+    console.log(response.data.token)
+}
 
-    // .then(function(response){
-    //     localStorage.setItem('Token', response.data.token);
-    // })
-
-    // console.log(localStorage.getItem('Token'))
+export async function RefreshToken(Tokens){
+    let response = await axios.post("https://localhost:5001/api/RefreshToken", Tokens).catch(function (error) {
+        if (error.response) {
+          console.log(error.response.status);
+        }
+      });
+    localStorage.setItem('accessToken', response.data.token);
+    localStorage.setItem('refreshToken',response.data.refreshToken);
+    console.log(response.data.token)
 }
