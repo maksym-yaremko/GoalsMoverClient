@@ -8,6 +8,7 @@ import EmailField from "./EmailField";
 import PasswordField from "./PasswordField";
 
 import '../../ComponentsStyles/SignUp.css';
+import '../../ComponentsStyles/SignUp/Input.scss'
 
 class SignUp extends React.Component{
     fieldStateChanged = field => state => this.setState({ [field]: state.errors.length === 0 });
@@ -20,7 +21,9 @@ class SignUp extends React.Component{
 
         this.state = {
             email: '',
-            password : ''
+            password : '',
+            isEmailFilled: false,
+            isPasswordFilled: false
         };
       }
 
@@ -64,15 +67,13 @@ class SignUp extends React.Component{
                         <a className="login-signup-page-button-gmail" href="/">Sign up with Google</a>
                         </div>
                         <p id="login-sign-up-form-page-text"> or sign up with your email address </p>
-                        <p>
-                            <EmailField type="text" fieldId="email-login-signup-form" label="Email" placeholder="  Email" value={this.props.email} onChange={this.emailChanged} />
-                        </p>
-                         <p>
-                            <PasswordField type="password" fieldId="password-login-signup-form" label="Password" placeholder="  Password" value={this.props.password} onChange={this.passwordChanged}/>
-                        </p>
+                        <div>
+                        <EmailField type="text" fieldId="email-login-signup-form" label="Email" placeholder="  Email" value={this.props.email} onStateChanged={this.emailChanged} />
+                        <PasswordField type="password" fieldId="password-login-signup-form" label="Password" placeholder="  Password" value={this.props.password} onStateChanged={this.passwordChanged}/>
                         <p>
                             {formValidated && <button id="submitbutton-signup-form" type="button" onClick={this.onButtonSumbit}>Sign up</button>}
                         </p>
+                        </div>
                         <div className = "terms-texts-login-signup-form">
                             <p>By signing up for Goaler, you agree to the Terms of Service.</p>
                             <p> View our Privacy Policy.</p>

@@ -53,7 +53,9 @@ class PasswordField extends Component {
             <Fragment>
                 <div className="position-relative">
                     <FormField type="password" validator={this.validatePasswordStrong} onStateChanged={this.stateChanged} {...restProps}>
-                        <span className="d-block form-hint">To conform with our Strong Password policy, you are required to use a sufficiently strong password. Password must be more than 7 characters.</span>
+                        <span className="d-block form-hint">To conform with our Strong Password policy,
+                            you are required to use a sufficiently strong password.
+                            Password must be more than 7 characters.</span>
                         {children}
                         <div className={strengthClass}>
                             <div className="strength-meter-fill" data-strength={strength}/>
