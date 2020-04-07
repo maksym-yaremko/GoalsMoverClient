@@ -1,15 +1,22 @@
 import React from 'react';
-import HorizontalList from './HorizontalList';
-import '../ComponentsStyles/SignUp.css';
+import '../../ComponentsStyles/SignUp.css';
 import BodyClassName from 'react-body-classname';
-import * as All from '../Api';
+
+import HorizontalList from '../HorizontalList';
+import * as All from '../../Api';
+import EmailField from "./EmailField";
+import PasswordField from "./PasswordField";
+
+import '../../ComponentsStyles/SignUp.css';
 
 class SignUp extends React.Component{
+    fieldStateChanged = field => state => this.setState({ [field]: state.errors.length === 0 });
+
+    emailChanged = this.fieldStateChanged('email');
+    passwordChanged = this.fieldStateChanged('password');
+
     constructor(props) {
         super(props);
-        this.onEmailChange = this.onEmailChange.bind(this);
-        this.onPasswordChange = this.onPasswordChange.bind(this);
-        this.onButtonSumbit = this.onButtonSumbit.bind(this)
 
         this.state = {
             email: '',
@@ -27,21 +34,23 @@ class SignUp extends React.Component{
         this.setState({password:event.target.value});
     }
 
-    async onButtonSumbit(){
+    onButtonSumbit(){
         const newRecord ={
             Email:this.state.email,
             Password:this.state.password
         };
     
-        await All.CreateUser(newRecord)
-        window.location.href='/'
+        All.CreateUser(newRecord).then(() => window.location.href='/');
+        //window.location.href='/'
     }
 
     render(){
+        const { email, password } = this.state;
+        const formValidated = email && password;
     return (
         <BodyClassName className="signUpPageBodyClass">
             <div>           
-                <HorizontalList></HorizontalList>  
+                <HorizontalList/>
                 <div>
                     <form id="form_login">
                         <div className = "texts-login-signup-form">
@@ -56,13 +65,13 @@ class SignUp extends React.Component{
                         </div>
                         <p id="login-sign-up-form-page-text"> or sign up with your email address </p>
                         <p>
-                            <input type="text" id="email-login-signup-form" placeholder="  Email" value={this.props.email} onChange={this.onEmailChange}/>
+                            <EmailField type="text" fieldId="email-login-signup-form" label="Email" placeholder="  Email" value={this.props.email} onChange={this.emailChanged} />
                         </p>
                          <p>
-                            <input type="password" id="password-login-signup-form" placeholder="  Password" value={this.props.password} onChange={this.onPasswordChange}/>
+                            <PasswordField type="password" fieldId="password-login-signup-form" label="Password" placeholder="  Password" value={this.props.password} onChange={this.passwordChanged}/>
                         </p>
                         <p>
-                            <button id="submitbutton-signup-form" type="button" onClick={this.onButtonSumbit}>Sign up</button>
+                            {formValidated && <button id="submitbutton-signup-form" type="button" onClick={this.onButtonSumbit}>Sign up</button>}
                         </p>
                         <div className = "terms-texts-login-signup-form">
                             <p>By signing up for Goaler, you agree to the Terms of Service.</p>
