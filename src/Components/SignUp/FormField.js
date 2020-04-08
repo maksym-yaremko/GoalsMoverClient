@@ -9,7 +9,6 @@ class FormField extends Component {
     hasChanged = e => {
         e.preventDefault();
 
-        // destructure props - assign default dummy functions to validator and onStateChanged props
         const { label, required = false, validator = f => f, onStateChanged = f => f } = this.props;
 
         const value = e.target.value;
@@ -19,19 +18,15 @@ class FormField extends Component {
         let errors = [];
 
         if (requiredMissing) {
-            // if required and is empty, add required error to state
             errors = [ ...errors, `${label} is required` ];
         } else if ('function' === typeof validator) {
             try {
                 validator(value);
             } catch (e) {
-                // if validator throws error, add validation error to state
                 errors = [ ...errors, e.message ];
             }
         }
 
-        // update state and call the onStateChanged callback fn after the update
-        // dirty is only changed to true and remains true on and after the first state update
         this.setState(({ dirty = false }) => ({ value, errors, dirty: !dirty || dirty }), () => onStateChanged(this.state));
     }
 
@@ -44,13 +39,11 @@ class FormField extends Component {
 
         return (
             <Fragment>
-                <div className="form-group px-3 pb-2">
-                    <div className="d-flex flex-row justify-content-between align-items-center">
+                <div className="form-group">
+                    <div className="d-flex flex-row align-items-center">
                         <label htmlFor={fieldId} className="control-label">{label}</label>
-                        {/** Render the first error if there are any errors **/}
                         { hasErrors && <div className="error form-hint font-weight-bold text-right m-0 mb-2">{ errors[0] }</div> }
                     </div>
-                    {/** Render the children nodes passed to component **/}
                     {children}
                     <input type={type} className={controlClass} id={fieldId} placeholder={placeholder} value={value} onChange={this.hasChanged} />
                 </div>
