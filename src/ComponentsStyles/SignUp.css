@@ -6,12 +6,12 @@
     background-size: cover;
 }
 
-#form_login{
-    padding: 0px 40px;
-    padding-top: 10px;
+#form-login{
+    padding: 10px 40px 0;
     margin-top: 30px;
     border-radius: 4px;
     left: 50%;
+    width: 25%;
     top: 50%;
     position: absolute;
     -webkit-transform: translate3d(-50%, -50%, 0);
@@ -25,7 +25,7 @@
     background-color: #ff7f0f;
     width: 100%;
     padding: 10px 130px;
-    border: 0px;
+    border: 0;
     border-radius: 4px;
 }
 
@@ -45,20 +45,20 @@
 #email-login-signup-form{
     width: 100%;
     padding: 10px ;
-    border: 0px;
+    border: 0;
     border-radius: 4px;
 }
 
 #password-login-signup-form{
     width: 100%;
     padding: 10px;
-    border: 0px;
+    border: 0;
     border-radius: 4px;
 }
 
 #login-sign-up-form-page-text{
     text-align: center;
-    padding:5px 0px;
+    padding:5px 0;
     font-size: 13px;
     color: white;
 }
@@ -70,7 +70,7 @@
     padding: 10px 34px;
     background-color:	#3b5998;
     text-decoration: none;
-    border: 0px solid #edf5f0;
+    border: 0 solid #edf5f0;
     color: white;
     cursor: pointer;
     border-radius: 4px;
@@ -107,6 +107,6 @@
 
     text-align: center;
     font-size: 12px;
-    padding: 0px;
+    padding: 0;
     color: white;
 }

@@ -32,9 +32,9 @@ class PasswordField extends Component {
     };
 
     validatePasswordStrong = value => {
-        if (value.length <= this.thresholdLength) throw new Error("Password is short");
+        if (value.length <= this.thresholdLength) throw new Error("Password is too short");
 
-        if (zxcvbn(value).score < this.minStrength) throw new Error("Password is weak");
+        if (zxcvbn(value).score < this.minStrength) throw new Error("Password is too weak");
     };
 
     render() {

@@ -46,8 +46,8 @@ class Login extends React.Component{
     return (
         <BodyClassName className="logInPageBodyClass">
             <div>
-                <HorizontalList></HorizontalList>
-                <form id="form_login">
+                <HorizontalList/>
+                <form id="form-login">
                         <div className = "texts-login-signup-form">
                             <h1 className = "text-login-signup-form">Log In</h1>
                         </div>
@@ -67,7 +67,7 @@ class Login extends React.Component{
                         <p>
                             <button id="submitbutton-login-form" type="button" onClick={this.onButtonSumbit}>Log in</button>
                         </p>
-                        <hr id="login-form-hr"></hr>
+                        <hr id="login-form-hr"/>
                         <div className = "terms-texts-login-signup-form">
                             <p>Forgot your password?</p>
                         </div>

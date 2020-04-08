@@ -55,7 +55,7 @@ class SignUp extends React.Component{
             <div>           
                 <HorizontalList/>
                 <div>
-                    <form id="form_login">
+                    <form id="form-login">
                         <div className = "texts-login-signup-form">
                             <h1 className = "text-login-signup-form">Join Goaler today,</h1>
                             <h1 className = "text-login-signup-form">it's Free.</h1>
@@ -70,9 +70,7 @@ class SignUp extends React.Component{
                         <div>
                         <EmailField type="text" fieldId="email-login-signup-form" label="Email" placeholder="  Email" value={this.props.email} onStateChanged={this.emailChanged} />
                         <PasswordField type="password" fieldId="password-login-signup-form" label="Password" placeholder="  Password" value={this.props.password} onStateChanged={this.passwordChanged}/>
-                        <p>
-                            {formValidated && <button id="submitbutton-signup-form" type="button" onClick={this.onButtonSumbit}>Sign up</button>}
-                        </p>
+                        {formValidated && <button id="submitbutton-signup-form" type="button" onClick={this.onButtonSumbit}>Sign up</button>}
                         </div>
                         <div className = "terms-texts-login-signup-form">
                             <p>By signing up for Goaler, you agree to the Terms of Service.</p>
